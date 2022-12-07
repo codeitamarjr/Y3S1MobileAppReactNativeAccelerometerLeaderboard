@@ -1,7 +1,74 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
+import { initializeApp } from 'firebase/app';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword
+} from "firebase/auth";
+
+/* App's Firebase configuration */
+const firebaseApp = initializeApp({
+    apiKey: "AIzaSyA0pjf1zsggqY7V_WtIbHHXeoH2jx-X8Qk",
+    authDomain: "accelerometer-leaderboard.firebaseapp.com",
+    projectId: "accelerometer-leaderboard",
+    storageBucket: "accelerometer-leaderboard.appspot.com",
+    messagingSenderId: "855377774417",
+    appId: "1:855377774417:web:3547d789507d6521b4f570"
+});
+
+/* Get a reference to the database service */
+const auth = getAuth(firebaseApp);
 
 const LoginScreen = () => {
+
+    /* Set State */
+    const [email, setEmail] = React.useState('')
+    const [password, setPassword] = React.useState('')
+
+    /* Navigation */
+    const naviation = useNavigation();
+
+    /* Check if user is logged in */
+    React.useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                naviation.replace('Accelerometer Leaderboard')
+            } else {
+                // No user is signed in.
+            }
+        });
+        return unsubscribe;
+    }, [])
+
+    /* Sign Up */
+    const signUp = async () => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user);
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        }
+    }
+
+    /* Sign In */
+    const signIn = async () => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password
+            );
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        }
+    }
+
     return (
         <KeyboardAvoidingView
             style={styles.container}
@@ -10,27 +77,27 @@ const LoginScreen = () => {
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder='Email'
-                    // value={ }
-                    // onChangeText={ text => setEmail(text) }
+                    value={email}
+                    onChangeText={text => setEmail(text)}
                     style={styles.input}
                 />
                 <TextInput
                     placeholder='Password'
-                    // value={ }
-                    // onChangeText={ text => setEmail(text) }
+                    value={password}
+                    onChangeText={text => setPassword(text)}
                     style={styles.input}
                     secureTextEntry={true}
                 />
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => { }}
+                    onPress={signIn}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => { }}
+                    onPress={signUp}
                     style={[styles.button, styles.buttonOutline]}
                 >
                     <Text style={styles.buttonOutlineText}>Register</Text>
