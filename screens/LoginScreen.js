@@ -7,14 +7,33 @@ import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword
 } from "firebase/auth";
+import { collection, getDoc, doc, setDoc, getFirestore } from "firebase/firestore";
 
 /* Get a reference to the database service */
 const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
+
+/* Set Collections */
+
+/* Update Users Profile */
+const setCollections = async (studentID) => {
+    try {
+        await setDoc(doc(db, "Firestore", studentID), {
+            name: '',
+            course: '',
+            year: '',
+            accelerometer_data: [],
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 const LoginScreen = () => {
 
     /* Set State */
     const [email, setEmail] = React.useState('')
+    const [studentID, setStudentID] = React.useState('')
     const [password, setPassword] = React.useState('')
 
     /* Navigation */
@@ -34,8 +53,11 @@ const LoginScreen = () => {
 
     /* Sign Up */
     const signUp = async () => {
+        export const studentID = studentID;
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            /* set Collections */
+            setCollections(studentID);
             // Signed in 
             const user = userCredential.user;
             console.log(user);
@@ -69,6 +91,12 @@ const LoginScreen = () => {
                     placeholder='Email'
                     value={email}
                     onChangeText={text => setEmail(text)}
+                    style={styles.input}
+                />
+                <TextInput
+                    placeholder='Student ID'
+                    value={studentID}
+                    onChangeText={text => setStudentID(text)}
                     style={styles.input}
                 />
                 <TextInput
