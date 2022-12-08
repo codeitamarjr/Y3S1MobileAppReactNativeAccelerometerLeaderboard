@@ -24,7 +24,7 @@ const LoginScreen = () => {
     React.useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
-                naviation.replace('Accelerometer Leaderboard')
+                naviation.replace('Home')
             } else {
                 // No user is signed in.
             }

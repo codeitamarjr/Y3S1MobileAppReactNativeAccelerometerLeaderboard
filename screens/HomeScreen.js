@@ -30,18 +30,26 @@ const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <Text>Email: {auth.currentUser?.email}</Text>
-            <Text>UID: {auth.currentUser?.uid}</Text>
-            <TouchableOpacity
-                onPress={signOut}
-                style={styles.button}
-            >
-                <Text style={styles.buttonText} >Logout</Text>
-            </TouchableOpacity>
+
             <TouchableOpacity
                 onPress={() => naviation.navigate('Profile')}
                 style={styles.button}
             >
                 <Text style={styles.buttonText} >Profile</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={() => naviation.navigate('Accelerometer')}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText} >Accelerometer</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={signOut}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText} >Logout</Text>
             </TouchableOpacity>
         </View>
     )
