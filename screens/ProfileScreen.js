@@ -4,7 +4,8 @@ import { firebaseApp, firestore } from '../firebaseConfig';
 import {
     getAuth,
 } from "firebase/auth";
-import { collection, getDoc, doc, setDoc, getFirestore } from "firebase/firestore";
+import { collection, getDoc, doc, setDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { studentID } from './LoginScreen';
 
 /* Get a reference to the database service */
 const auth = getAuth(firebaseApp);
@@ -13,7 +14,10 @@ const db = getFirestore(firebaseApp);
 /* Update Users Profile */
 const updateProfile = async (name, course, year) => {
     try {
-        await setDoc(doc(db, "StudentID", auth.currentUser?.uid), {
+        await updateDoc(doc(db, "Firestore",
+            /* studentID set on LoginScreen.js */
+            "23952"
+        ), {
             name: name,
             course: course,
             year: year,
@@ -35,7 +39,7 @@ const ProfileScreen = () => {
     React.useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
-                const docRef = doc(db, "StudentID", auth.currentUser?.uid);
+                const docRef = doc(db, "Firestore", "23952");
                 getDoc(docRef).then((doc) => {
                     if (doc.exists()) {
                         setName(doc.data().name)

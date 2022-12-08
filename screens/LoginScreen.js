@@ -53,7 +53,6 @@ const LoginScreen = () => {
 
     /* Sign Up */
     const signUp = async () => {
-        export const studentID = studentID;
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             /* set Collections */
