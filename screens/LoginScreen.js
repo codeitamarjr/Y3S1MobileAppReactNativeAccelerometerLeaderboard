@@ -1,22 +1,12 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { initializeApp } from 'firebase/app';
+import { firebaseApp } from '../firebaseConfig';
 import {
     getAuth,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword
 } from "firebase/auth";
-
-/* App's Firebase configuration */
-const firebaseApp = initializeApp({
-    apiKey: "AIzaSyA0pjf1zsggqY7V_WtIbHHXeoH2jx-X8Qk",
-    authDomain: "accelerometer-leaderboard.firebaseapp.com",
-    projectId: "accelerometer-leaderboard",
-    storageBucket: "accelerometer-leaderboard.appspot.com",
-    messagingSenderId: "855377774417",
-    appId: "1:855377774417:web:3547d789507d6521b4f570"
-});
 
 /* Get a reference to the database service */
 const auth = getAuth(firebaseApp);
