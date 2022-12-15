@@ -18,7 +18,7 @@ const accelerometer_data_array = [];
 /* upload x,y and z from accelerometer_data_array array to accelerometer_data collection in Firestore */
 const uploadAccelerometerData = async () => {
     try {
-        await updateDoc(doc(db, "Firestore", "23952"), {
+        await updateDoc(doc(db, "Users", "23952"), {
             /* upload the array object to the accelerometer_data collection in Firestore */
             accelerometer_data: accelerometer_data_array,
         });

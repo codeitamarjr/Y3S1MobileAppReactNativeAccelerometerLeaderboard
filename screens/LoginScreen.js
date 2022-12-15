@@ -15,10 +15,10 @@ const db = getFirestore(firebaseApp);
 
 /* Set Collections */
 
-/* Update Users Profile */
+/* Start Users Profile */
 const setCollections = async (studentID) => {
     try {
-        await setDoc(doc(db, "Firestore", studentID), {
+        await setDoc(doc(db, "Users", studentID), {
             name: '',
             course: '',
             year: '',

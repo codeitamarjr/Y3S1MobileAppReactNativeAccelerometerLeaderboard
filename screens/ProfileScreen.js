@@ -14,7 +14,7 @@ const db = getFirestore(firebaseApp);
 /* Update Users Profile */
 const updateProfile = async (name, course, year) => {
     try {
-        await updateDoc(doc(db, "Firestore",
+        await updateDoc(doc(db, "Users",
             /* studentID set on LoginScreen.js */
             "23952"
         ), {

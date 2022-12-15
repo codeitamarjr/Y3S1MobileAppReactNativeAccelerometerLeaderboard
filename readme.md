@@ -7,7 +7,7 @@ The objective of this project is to develop a cloud-connected mobile app to coll
 ### Authenticate using Firebase1, upload data to Firestore
 
 - [x] Sign up using <student_id>@student.dorset-college.ie (as email) and a password
-- [x] After sign up, collect and update details such as name, course, and year in Firestore > StudentID, and allow editing these details later
+- [x] After signing up, collect and update details such as name, course, and year in Firestore > StudentID, and allow editing these details later
 - [x] Collect and store locally 1000 accelerometer data points
 - [x] Once 1000 data points are collected, upload to Firestore > StudentID > accelerometer_data
 - [x] Repeat 3 and 4 as long as the app is open and is in the foreground (Don't record when minimized)
