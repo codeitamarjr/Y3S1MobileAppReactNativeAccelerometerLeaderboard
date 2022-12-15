@@ -10,8 +10,6 @@ import { collection, getDocs, doc, getFirestore, Firestore } from "firebase/fire
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
-/* The accelerometer_data array from ALL users */
-const accelerometer_data = [];
 /* The ScoreData array to store the user id and movement score */
 const ScoreData = [];
 
@@ -31,63 +29,72 @@ const getAccelerometerData = async () => {
                 total_y += Math.abs(data.y);
                 total_z += Math.abs(data.z);
                 total_data_points += 1;
-            }
-            );
+            });
             movement_score = (total_x + total_y + total_z) / total_data_points;
-            /* Push the the user id and movement score to the accelerometer_data array */
+            /* Push the the user id and movement score to ScoreData */
             ScoreData.push({
                 user_id: doc.id,
                 movement_score: movement_score,
             });
         });
-        /* Console.log the user id and movement score */
-        console.log(ScoreData);
+
     } catch (error) {
         console.log(error);
     }
+    /* Console log the ScoreData before sorting */
+    console.log(ScoreData);
+    /* Sort the ScoreData by movement_score DESC */
+    const Sorted = ScoreData.sort((a, b) => b.movement_score - a.movement_score);
+    /* Console log the ScoreData array */
+    console.log(Sorted);
 }
 
-/* Sort the ScoreData by movement_score and return the top 10 */
-const getTop10Users = () => {
-    /* Sort the ScoreData by movement_score */
-    ScoreData.sort((a, b) => (a.movement_score > b.movement_score) ? 1 : -1);
-    /* Console.log to check if the ScoreData is sorted */
-    console.log("Sorted ScoreData: ", ScoreData);
-    /* Return the top 10 users */
-    return ScoreData.slice(0, 10);
-}
+/* Get the accelerometer_data array from ALL users */
+getAccelerometerData();
 
-/* Show toaster with countdown in a while load the top 10 users */
-const printTop10Users = () => {
-    /* Get all the accelerometer_data array from ALL users */
-    getAccelerometerData();
-    /* Sort the accelerometer_data array by movement score and return the top 10 users */
-    const top10Users = getTop10Users();
-    /* For each user in the top 10 users, print a view with the user id and movement score */
-    top10Users.forEach((user) => {
-        return (
-            <View>
-                <Text> Test</Text>
-                <Text>{user.user_id}</Text>
-                <Text>{user.movement_score}</Text>
-            </View>
-        )
-    }
+/* Show a box for each user */
+const LeaderboardScreen = () => {
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>Leaderboard</Text>
+            {ScoreData.map((data) => (
+                /* Show Student ID and Movement Score in a box */
+                <View style={styles.box} key={data.user_id}>
+                    <Text style={styles.text}>Student ID: {data.user_id}</Text>
+                    <Text style={styles.text}>Movement Score: {data.movement_score}</Text>
+                </View>
+            ))}
+        </View>
     );
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#000',
+    },
+    box: {
+        width: 300,
+        height: 100,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 10,
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 10,
+    },
+});
 
-const LeaderboardScreen = () => {
+export default LeaderboardScreen;
 
-    return (
-        <View>
-            <Text>Leaderboard Screen</Text>
-            {/* Toaster loading the TOP 10 users screen */}
-            {printTop10Users()}
-        </View>
-    )
-}
 
-export default LeaderboardScreen
 
-const styles = StyleSheet.create({})
+
