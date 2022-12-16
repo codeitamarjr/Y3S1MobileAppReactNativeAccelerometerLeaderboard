@@ -4,7 +4,7 @@ import { firebaseApp, firestore } from '../firebaseConfig';
 import {
     getAuth,
 } from "firebase/auth";
-import { collection, getDocs, doc, getFirestore, Firestore } from "firebase/firestore";
+import { collection, getDocs, getDoc, doc, getFirestore, Firestore } from "firebase/firestore";
 
 /* Get a reference to the database service */
 const auth = getAuth(firebaseApp);
@@ -52,14 +52,37 @@ const getAccelerometerData = async () => {
 /* Get the accelerometer_data array from ALL users */
 getAccelerometerData();
 
+/* Function getName(user_id) with from the Users collection */
+function getName(user_id) {
+    try {
+        const docRef = doc(db, "Users", user_id)
+        getDoc(docRef)
+            .then(docSnap => {
+                if (docSnap.exists()) {
+                    console.log("Document data:", docSnap.data().name);
+                    return docSnap.data().name;
+                } else {
+                    console.log("No such document Name!");
+                }
+            }
+            );
+    } catch (error) {
+        console.log("Error getting Name document:", error);
+    }
+}
+
 /* Show a box for each user */
 const LeaderboardScreen = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Leaderboard</Text>
+            <Text style={styles.title}>Leader Board</Text>
             {ScoreData.map((data) => (
                 /* Show Student ID and Movement Score in a box */
                 <View style={styles.box} key={data.user_id}>
+                    <Text style={styles.text}>Name: {
+                        /* wait for the return of getName(data.user_id) before showing the name */
+                        getName(data.user_id)
+                    }</Text>
                     <Text style={styles.text}>Student ID: {data.user_id}</Text>
                     <Text style={styles.text}>Movement Score: {data.movement_score}</Text>
                 </View>

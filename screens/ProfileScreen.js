@@ -22,6 +22,7 @@ const updateProfile = async (name, course, year) => {
             course: course,
             year: year,
         });
+        console.log("Document successfully updated!");
     } catch (error) {
         console.log(error);
     }
@@ -39,7 +40,7 @@ const ProfileScreen = () => {
     React.useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
-                const docRef = doc(db, "Firestore", "23952");
+                const docRef = doc(db, "Users", "23952");
                 getDoc(docRef).then((doc) => {
                     if (doc.exists()) {
                         setName(doc.data().name)
