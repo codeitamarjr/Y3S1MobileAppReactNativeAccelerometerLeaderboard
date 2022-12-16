@@ -80,7 +80,7 @@ const LeaderboardScreen = () => {
                 /* Show Student ID and Movement Score in a box */
                 <View style={styles.box} key={data.user_id}>
                     <Text style={styles.text}>Name: {
-                        /* wait for the return of getName(data.user_id) before showing the name */
+                        /* TODO: wait for the return of getName(data.user_id) before showing the name */
                         getName(data.user_id)
                     }</Text>
                     <Text style={styles.text}>Student ID: {data.user_id}</Text>
