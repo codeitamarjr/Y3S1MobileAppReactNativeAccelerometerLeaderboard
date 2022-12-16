@@ -46,6 +46,13 @@ const HomeScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
+                onPress={() => naviation.navigate('Leaderboard')}
+                style={styles.button}
+            >
+                <Text style={styles.buttonText} >Leaderboard</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
                 onPress={signOut}
                 style={styles.button}
             >
