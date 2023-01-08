@@ -9,12 +9,20 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyA0pjf1zsggqY7V_WtIbHHXeoH2jx-X8Qk",
-    authDomain: "accelerometer-leaderboard.firebaseapp.com",
-    projectId: "accelerometer-leaderboard",
-    storageBucket: "accelerometer-leaderboard.appspot.com",
-    messagingSenderId: "855377774417",
-    appId: "1:855377774417:web:3547d789507d6521b4f570"
+    // test
+    // apiKey: "AIzaSyA0pjf1zsggqY7V_WtIbHHXeoH2jx-X8Qk",
+    // authDomain: "accelerometer-leaderboard.firebaseapp.com",
+    // projectId: "accelerometer-leaderboard",
+    // storageBucket: "accelerometer-leaderboard.appspot.com",
+    // messagingSenderId: "855377774417",
+    // appId: "1:855377774417:web:3547d789507d6521b4f570"
+
+    apiKey: "AIzaSyDipMCkWcdc38Q6HTLrxjA4Xbpwc0l5nWs",
+    authDomain: "dorset-mobile-app-2.firebaseapp.com",
+    projectId: "dorset-mobile-app-2",
+    storageBucket: "dorset-mobile-app-2.appspot.com",
+    messagingSenderId: "1028647483140",
+    appId: "1:1028647483140:web:c122fff6b267bab3bf0251"
 };
 
 
