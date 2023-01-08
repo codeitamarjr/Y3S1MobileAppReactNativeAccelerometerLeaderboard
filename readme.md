@@ -14,11 +14,11 @@ The objective of this project is to develop a cloud-connected mobile app to coll
 
 ### Display Leaderboard
 
-- [ ] Retrieve accelerometer_data of all users and calculate movement score for each user
-- [ ] If accelerometer_data is unavailable or not in the correct format or has more than 1000 data points, show a score "N/A".
-- [ ] Show recycler view to display leaderboard with columns rank, name and score (use the score for ranking)
-- [ ] Refresh every minute, show information: last refreshed (in time ago format3), and refreshing in x seconds
-- [ ] Show details of the user when clicked in full screen, allow going back to the leaderboard
+- [x] Retrieve accelerometer_data of all users and calculate movement score for each user
+- [x] If accelerometer_data is unavailable or not in the correct format or has more than 1000 data points, show a score "N/A".
+- [x] Show recycler view to display leaderboard with columns rank, name and score (use the score for ranking)
+- [x] Refresh every minute, show information: last refreshed (in time ago format3), and refreshing in x seconds
+- [x] Show details of the user when clicked in full screen, allow going back to the leaderboard
 
 #### Data Upload Format Example
 
@@ -60,3 +60,7 @@ ID 23952
 [Expo - Accelerometer](https://docs.expo.io/versions/latest/sdk/accelerometer/)
 [React Native, Firebase v9, authentication and firestore by Born To Code](https://www.youtube.com/watch?v=20TSEoJkg5k&t=1564s)
 [User Profile with Firebase Firestore DB in React Native | Social App Tutorial by Pradip Debnath](https://www.youtube.com/watch?v=aFtYsghw-1k&t=1155s)
+
+### Screenrecording
+
+[Screenrecording](x)

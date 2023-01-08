@@ -31,6 +31,10 @@ const getAccelerometerData = async () => {
                 total_data_points += 1;
             });
             movement_score = (total_x + total_y + total_z) / total_data_points;
+            /* if the movement score is 0 or more than 1000, set it to NaN */
+            if (movement_score <= 0 || movement_score > 1000) {
+                movement_score = NaN;
+            }
             /* Push the the user id and movement score to ScoreData */
             ScoreData.push({
                 user_id: doc.id,
@@ -79,10 +83,12 @@ const LeaderboardScreen = () => {
             {ScoreData.map((data) => (
                 /* Show Student ID and Movement Score in a box */
                 <View style={styles.box} key={data.user_id}>
+                    {/*
                     <Text style={styles.text}>Name: {
-                        /* TODO: wait for the return of getName(data.user_id) before showing the name */
+                        /* TODO: wait for the return of getName(data.user_id) before showing the name 
                         getName(data.user_id)
                     }</Text>
+                    /*/}
                     <Text style={styles.text}>Student ID: {data.user_id}</Text>
                     <Text style={styles.text}>Movement Score: {data.movement_score}</Text>
                 </View>
