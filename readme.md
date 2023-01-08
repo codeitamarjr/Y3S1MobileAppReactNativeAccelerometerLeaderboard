@@ -61,7 +61,14 @@ ID 23952
 [React Native, Firebase v9, authentication and firestore by Born To Code](https://www.youtube.com/watch?v=20TSEoJkg5k&t=1564s)
 [User Profile with Firebase Firestore DB in React Native | Social App Tutorial by Pradip Debnath](https://www.youtube.com/watch?v=aFtYsghw-1k&t=1155s)
 
-### Screenrecording and Screenshots
+### Screen Recording and Screenshots
 
 [Screenrecording](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/RPReplay_Final1673185616.mp4?raw=true)
+
+#### Screenshot
+
+[Login](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5254.PNG?raw=true)
+[Main Screen](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5252.PNG?raw=true)
+[Profile](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5253.PNG?raw=true)
+[Leader Board](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
 [Movement Score](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
