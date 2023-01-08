@@ -63,12 +63,12 @@ ID 23952
 
 ### Screen Recording and Screenshots
 
-[Screenrecording](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/RPReplay_Final1673185616.mp4?raw=true)
+![Screenrecording](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/RPReplay_Final1673185616.mp4?raw=true)
 
 #### Screenshot
 
-[Login](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5254.PNG?raw=true)
-[Main Screen](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5252.PNG?raw=true)
-[Profile](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5253.PNG?raw=true)
-[Leader Board](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
-[Movement Score](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
+![Login](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5254.PNG?raw=true)
+![Main Screen](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5252.PNG?raw=true)
+![Profile](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5253.PNG?raw=true)
+![Leader Board](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
+![Movement Score](https://github.com/codeitamarjr/Y3S1MobileAppReactNativeAccelerometerLeaderboard/blob/master/screenrecorder/IMG_5251.PNG?raw=true)
